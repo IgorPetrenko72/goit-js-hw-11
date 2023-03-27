@@ -45,7 +45,7 @@ function onLoadMore() {
         refs.btnLoadMore.classList.add("is-hidden");
       }
       renderGallery(data.hits)
-      refreshLightbox()
+      lightbox()
     });
 }
 

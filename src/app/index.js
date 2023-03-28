@@ -18,7 +18,8 @@ const photoApiService = new PhotoApiService();
 
 function onSearchForm(e) {
   e.preventDefault();
-  refs.btnLoadMore.classList.remove("is-hidden");
+  clearPhotosGallery();
+  
   
   photoApiService.query = e.currentTarget.searchQuery.value.trim();
   if (photoApiService.query === '') {
@@ -28,9 +29,10 @@ function onSearchForm(e) {
   photoApiService.fetchPhotos()
     .then((data) => {
       if (data.total === 0) {
+      refs.btnLoadMore.classList.add("is-hidden");
       return  noImagesFound()   
       }
-      clearPhotosGallery();
+      refs.btnLoadMore.classList.remove("is-hidden");
       imagesFound(data)
       renderGallery(data.hits)
       lightbox();

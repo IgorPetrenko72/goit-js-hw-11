@@ -5,7 +5,7 @@ export default class PhotoApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
-        this.pages = 20;
+        this.pages = 40;
      }
     
     async fetchPhotos() {

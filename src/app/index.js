@@ -24,12 +24,12 @@ function onSearchForm(e) {
   photoApiService.query = e.currentTarget.searchQuery.value.trim();
   if (photoApiService.query === '') {
       return  emptySearch()   
-      }
+  }
+  refs.btnLoadMore.classList.add("is-hidden");
   photoApiService.resetPage();
-  photoApiService.fetchPhotos()
+  photoApiService.fetchPhotos() 
     .then((data) => {
       if (data.total === 0) {
-      refs.btnLoadMore.classList.add("is-hidden");
       return  noImagesFound()   
       }
       refs.btnLoadMore.classList.remove("is-hidden");
